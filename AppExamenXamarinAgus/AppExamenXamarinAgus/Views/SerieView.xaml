@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamenXamarinAgus.Views.SerieView"
+             xmlns:local="clr-namespace:AppExamenXamarinAgus"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator},Path=SerieViewModel}" x:Name="PageSerieView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Serie"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" FontSize="40" />
+
+            <Frame HasShadow="True">
+                <StackLayout>
+                    <Image Source="{Binding Serie.Imagen}" HeightRequest="250" WidthRequest="250"/>
+                    <Label Text="{Binding Serie.Nombre}" FontSize="18"/>
+                    <Label Text="{Binding Serie.Puntuacion}" FontSize="18"/>
+                    <Label Text="{Binding Serie.anyo}" FontSize="18"/>
+                    <StackLayout>
+                        <ListView ItemsSource="{Binding Personajes}" RowHeight="200">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="{Binding Nombre}" FontSize="20"/>
+                                            <Image Source="{Binding Imagen}" WidthRequest="100" HeightRequest="100"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

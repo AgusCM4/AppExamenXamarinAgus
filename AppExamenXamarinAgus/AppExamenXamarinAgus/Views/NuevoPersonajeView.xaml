@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamenXamarinAgus.Views.NuevoPersonajeView"
+             xmlns:local="clr-namespace:AppExamenXamarinAgus"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator},Path=NuevoPersonajeViewModel}" x:Name="PagePersonajeView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Nuevo Personaje"
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Nombre"/>
+            <Entry Placeholder="Nombre" Text="{Binding Personaje.Nombre}"/>
+            <Label Text="IdSerie"/>
+            <!--<Entry Placeholder="Nombre" Text="{Binding Personaje.IdSerie}"/>-->
+            <Picker x:Name="pickerOpciones" Title="Seleccione Serie" ItemsSource="{Binding Series}" ItemDisplayBinding="{Binding Nombre}" SelectedItem="{Binding SerieSeleccionada}"/>
+            <Button Text="Insertar" Command="{Binding InsertarPersonaje}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

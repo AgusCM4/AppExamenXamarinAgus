@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppExamenXamarinAgus.Views.SeriesListView"
+             xmlns:local="clr-namespace:AppExamenXamarinAgus"
+             BindingContext="{Binding Source={x:Static local:App.ServiceLocator},Path=SeriesListViewModel}" x:Name="PageSeriesView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="SERIES" FontSize="30"/>
+            <ListView ItemsSource="{Binding Series}" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Nombre}" VerticalOptions="CenterAndExpand" FontSize="30"/>
+                                <Button Command="{Binding BindingContext.VerSerie, Source={x:Reference PageSeriesView}}" CommandParameter="{Binding .}" Text="Ver Serie"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
